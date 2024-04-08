@@ -1,15 +1,30 @@
 provider "aws" {
-  region = "us-west-2"  # Specify your desired AWS region
+  region = var.aws_region
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1f0"  # Specify the AMI ID of the desired OS
-  instance_type = "t2.micro"               # Specify the instance type
+  ami           = var.ami
+  instance_type = var.instance_type
 
   tags = {
-    Name = "ExampleInstance"                # Tag the instance with a name
+    Name = var.instance_name
   }
 }
+
+
+
+//provider "aws" {
+//  region = "us-west-2"  # Specify your desired AWS region
+//}
+
+//resource "aws_instance" "example" {
+//  ami           = "ami-0c55b159cbfafe1f0"  # Specify the AMI ID of the desired OS
+//  instance_type = "t2.micro"               # Specify the instance type
+//
+//  tags = {
+//    Name = "ExampleInstance"                # Tag the instance with a name
+//  }
+//}
 
 //This Terraform script does the following:
 
